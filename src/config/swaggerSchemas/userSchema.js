@@ -1,0 +1,106 @@
+module.exports = {
+  AddUser: {
+    name: 'Teste Testerson',
+    CPF: '94319884027',
+    email: 'test@test.com',
+    phone: '5555555555',
+    birthDate: '1988-10-31'
+  },
+  UserTableList: [{
+    docs: [
+      {
+        active: true,
+        isMaster: false,
+        resetPassword: true,
+        _id: '6113dd999647300010603479',
+        name: 'Teste Testerson',
+        CPF: '94319884027',
+        email: 'test@test.com',
+        phone: '5555555555',
+        realEstate: {
+          resetPassword: true,
+          active: true,
+          _id: '603fdf6f31033a02b25cc484',
+          name: 'Test Real Estate',
+          CNPJ: '54336984000105',
+          email: 'test@test.com',
+          phone: '(55) 55555-5555',
+          password: '$2b$04$doby.peqmkyPsKbbIq1rBuNboNBW3Bm.m55ywHfIR2z6MYSbHrfPu',
+          createdAt: '2021-08-21T23:28:31.535Z',
+          updatedAt: '2021-08-21T23:28:31.535Z'
+        },
+        birthDate: '1986-12-14T02:00:00.000Z',
+        password: '$2b$04$n3jOgPacAmMLs7Ad1JkLQORw93KAbyVnpbKVn4a1yq6pKJoUMuxE.',
+        role: 'AGENT',
+        createdAt: '2021-08-11T14:24:25.936Z',
+        updatedAt: '2021-08-11T14:41:53.947Z',
+        notificationToken: 'fd4fd54fd5f4d5f45f45d4f5df45d4f5d4fd4f54d5f4d5f4d5f4fd5'
+      }],
+    totalDocs: 0,
+    limit: 0,
+    totalPages: 1,
+    page: 1,
+    pagingCounter: 1,
+    hasPrevPage: false,
+    hasNextPage: false,
+    prevPage: '',
+    nextPage: ''
+  }],
+  UserList: [{
+    active: true,
+    isMaster: false,
+    resetPassword: true,
+    _id: '6113dd999647300010603479',
+    name: 'Teste Testerson',
+    CPF: '94319884027',
+    email: 'test@test.com',
+    phone: '5555555555',
+    realEstate: '5fce5c6438b2b070635dd595',
+    birthDate: '1986-12-14T02:00:00.000Z',
+    password: '$2b$04$n3jOgPacAmMLs7Ad1JkLQORw93KAbyVnpbKVn4a1yq6pKJoUMuxE.',
+    role: 'AGENT',
+    createdAt: '2021-08-11T14:24:25.936Z',
+    updatedAt: '2021-08-11T14:41:53.947Z',
+    notificationToken: 'fd4fd54fd5f4d5f45f45d4f5df45d4f5d4fd4f54d5f4d5f4d5f4fd5'
+  }],
+  UserItem: {
+    active: true,
+    isMaster: false,
+    resetPassword: true,
+    _id: '6113dd999647300010603479',
+    name: 'Teste Testerson',
+    CPF: '94319884027',
+    email: 'test@test.com',
+    phone: '5555555555',
+    realEstate: {
+      resetPassword: true,
+      active: true,
+      _id: '603fdf6f31033a02b25cc484',
+      name: 'Test Real Estate',
+      CNPJ: '54336984000105',
+      email: 'test@test.com',
+      phone: '(55) 55555-5555',
+      password: '$2b$04$doby.peqmkyPsKbbIq1rBuNboNBW3Bm.m55ywHfIR2z6MYSbHrfPu',
+      createdAt: '2021-08-21T23:28:31.535Z',
+      updatedAt: '2021-08-21T23:28:31.535Z',
+      notificationToken: 'fd4fd54fd5f4d5f45f45d4f5df45d4f5d4fd4f54d5f4d5f4d5f4fd5'
+    },
+    birthDate: '1986-12-14T02:00:00.000Z',
+    password: '$2b$04$n3jOgPacAmMLs7Ad1JkLQORw93KAbyVnpbKVn4a1yq6pKJoUMuxE.',
+    role: 'AGENT',
+    createdAt: '2021-08-11T14:24:25.936Z',
+    updatedAt: '2021-08-11T14:41:53.947Z',
+    notificationToken: 'fz6gGcUiwdM:APA91bGMWnC7WZUcOU7vVLa4nxGGlZZj6luvNLVHTdHpiH63yiojzLTZWD5GsRZoxrX2hniHLagi8YHOE3CG1WyeQe7lj2XA5WyJb8jOFAcDxO3B6lF99cesc5hpwt_sufwbIUV2jc3P'
+  },
+  SelfAddUser: {
+    name: 'Test self added user',
+    CPF: '73549642040',
+    email: 'selfUserTest@test.com',
+    password: 'Password@123',
+    phone: '51991818861',
+    birthDate: '1988-10-31',
+    role: 'MANAGER',
+    realEstate: '617df40d5f3529077284903d',
+    notificationToken: 'fd4fd54fd5f4d5f45f45d4f5df45d4f5d4fd4f54d5f4d5f4d5f4fd5'
+  }
+}

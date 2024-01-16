@@ -1,0 +1,10 @@
+node_modules
+.env
+.env.dev
+.env.test
+__tests__/coverage
+__tests__/database.sqlite
+temp
+src/config/swagger_output.json
+globalConfig.json
+
