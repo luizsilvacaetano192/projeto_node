@@ -352,7 +352,7 @@ class PhaseService extends Services {
       if (notificationToken) {
         const message = {
           notification: {
-            title: 'Concede Crédito',
+            title: ' Crédito',
             body: bodyMessage
           },
           token: notificationToken
@@ -564,7 +564,7 @@ class PhaseService extends Services {
         const bodyMessage = isLastPhase ? endLastPhaseMessage : bodyPhasesMessage
         const message = {
           notification: {
-            title: 'Concede Crédito',
+            title: 'Crédito',
             body: bodyMessage
           },
           token: notificationToken

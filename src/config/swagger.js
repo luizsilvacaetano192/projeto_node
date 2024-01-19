@@ -31,8 +31,8 @@ fs
 const doc = {
   info: {
     version: '1.0.0',
-    title: 'API Concede',
-    description: 'API da Concede'
+    title: 'API ',
+    description: 'API da '
   },
   host: process.env.BASE_URL,
   basePath: '/',

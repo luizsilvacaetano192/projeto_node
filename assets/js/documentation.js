@@ -25,7 +25,7 @@ const documentation = {
       type: 'string',
       required: true,
       descriptions: [
-        'ID do parceiro no sistema Concede.',
+        'ID do parceiro no sistema.',
         'Não Alterar'
       ],
     },
@@ -78,7 +78,7 @@ const documentation = {
 
     this.code.attributes.unshift({
       name: 'href',
-      value: `https://simulador.concede.vc/#/results?partnership=${this.partnership}&email=${this.email}&value=25000000&entryValue=5000000&birthDate=2001-01-01&months=300`,
+      value: `https://simulador/#/results?partnership=${this.partnership}&email=${this.email}&value=25000000&entryValue=5000000&birthDate=2001-01-01&months=300`,
     });
   }
 }

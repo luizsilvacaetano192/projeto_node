@@ -240,7 +240,7 @@ class UserService extends Services {
         type: 'mail',
         to: userEmail,
         from: `Test Server < ${process.env.EMAIL_FROM} >`,
-        subject: 'Bem vindo a Concede Crédito Imobiliário',
+        subject: 'Bem vindo a  Crédito Imobiliário',
         message: messageContent
       }
 
@@ -273,8 +273,8 @@ class UserService extends Services {
       const message = {
         type: 'mail',
         to: usuario.email,
-        from: `Sistema Concede < ${process.env.EMAIL_FROM} >`,
-        subject: 'Redefinição da sua senha na Concede Crédito Imobiliário',
+        from: `Sistema  < ${process.env.EMAIL_FROM} >`,
+        subject: 'Redefinição da sua senha na  Crédito Imobiliário',
         message: messageContent
       }
 

@@ -122,7 +122,7 @@ describe('Phase', () => {
       .field('idProcess', `${process._id}`)
       .field('complementar', 'false')
       .field('fieldName', 'teste')
-      .attach('archives', resolve(__dirname, '..', 'utils', 'concede.svg'))
+      .attach('archives', resolve(__dirname, '..', 'utils', 'teste.svg'))
 
     const phase = await request(app)
       .get(`/phase/${process.phases[0]}`)
@@ -155,7 +155,7 @@ describe('Phase', () => {
       .field('idProcess', `${process._id}`)
       .field('complementar', 'false')
       .field('fieldName', 'Teste')
-      .attach('archives', resolve(__dirname, '..', 'utils', 'concede.svg'))
+      .attach('archives', resolve(__dirname, '..', 'utils', '.svg'))
 
     const response = await request(app)
       .put(`/download-document/${process.phases[1]}?fieldName=Teste`)

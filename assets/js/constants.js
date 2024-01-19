@@ -12,5 +12,5 @@ const constant =
  module.exports =  constant;
 /*
   O cálculo da simulação para poupança deve incluir 70% da selic com o teto de 6.17,
-  porém a Concede ja nos fornece o valor corrigido pelos 70% e ajustado ao teto.
+  porém a  ja nos fornece o valor corrigido pelos 70% e ajustado ao teto.
 */

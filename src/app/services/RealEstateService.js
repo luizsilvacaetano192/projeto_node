@@ -68,7 +68,7 @@ class RealEstateService extends Services {
         type: 'mail',
         to: userEmail,
         from: `Test Server < ${process.env.EMAIL_FROM} >`,
-        subject: 'Bem vindo a Concede Crédito Imobiliário',
+        subject: 'Bem vindo a  Crédito Imobiliário',
         message: messageContent
       }
 

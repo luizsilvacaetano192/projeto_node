@@ -11,7 +11,7 @@ const emailSender = {
     }
   },
   to: 'luizcaetano182@gmail.com',
-  subject: 'Simulação - Concede Crédito Imobiliário',
+  subject: 'Simulação -  Crédito Imobiliário',
  
   async sendEmail (message,email) {
     

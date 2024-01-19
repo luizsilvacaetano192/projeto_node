@@ -269,7 +269,7 @@ class SimulatorService extends Services {
 
      
         senderEmail.sendEmail(message2,req.query.email);
-        senderEmail.sendEmail(message,'simulador@concede.vc');
+        senderEmail.sendEmail(message,'email@email');
 
       }
       else
@@ -282,7 +282,7 @@ class SimulatorService extends Services {
         Contato:  ${req.query.leadEmail} - ${req.query.leadPhone}<br>
         No valor de ${req.query.value} com ${req.query.entryValue} de entrada em ${req.query.months} parcelas <br>`;
 
-        senderEmail.sendEmail(message2,'simulador@concede.vc');
+        senderEmail.sendEmail(message2,'simulador@email');
     
 
       }
