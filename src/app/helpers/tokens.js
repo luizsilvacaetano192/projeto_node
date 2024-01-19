@@ -73,6 +73,7 @@ module.exports = {
     list: accessTokenBlacklist,
     expiration: [10080, 'minutes'],
     create (id) {
+      console.log('id passado',id);
       return createJWT(id, this.expiration)
     },
     check (token) {

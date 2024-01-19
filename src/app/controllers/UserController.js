@@ -51,16 +51,17 @@ class UserController extends Controller {
   }
 
   async login (req, res, next) {
-    console.log('teste')
     try {
       let user
       if (typeof req.user !== 'undefined') {
         user = req.user
       } else if (typeof req.body.token !== 'undefined') {
+        console.log('ta no token')
         const userId = await tokens.access.check(req.body.token)
         console.log('userID',userId)
         user = await this.service.findUserWhenTypeUnknown({ _id: userId })
       } else {
+        console.log('ta no erro')
         throw new NotAuthorizedError()
       }
 

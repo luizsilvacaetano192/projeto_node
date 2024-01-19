@@ -12,6 +12,7 @@ module.exports = {
       'local',
       { session: false },
       (error, usuario, info) => {
+        console.log(usuario);
         if (error) {
           return next(error)
         }

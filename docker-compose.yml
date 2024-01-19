@@ -1,0 +1,53 @@
+version: "2"
+
+services:
+  #Redis service
+  redis:
+    image: redis
+    container_name: redis
+    restart: unless-stopped
+    tty: true
+    ports:
+      - 6379:6379
+    environment:
+      SERVICE_NAME: redis
+      SERVICE_TAGS: dev
+    networks:
+      - minha-rede
+
+  #api service
+  node:
+    image: node
+    user: "node"
+    working_dir: /home/node/app
+    container_name: node
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ../projeto_node:/home/node/app
+    command: "npm run dev"
+    networks:
+      minha-rede:
+        
+    expose: 
+      - "3000"     
+    ports: 
+      - 3000:3000  
+
+  #Mongo Service
+  db:
+    image: mongo
+    container_name: db
+    restart: always
+    tty: true
+    ports:
+      - "27017:27017"
+    volumes:
+      - /dbdata:/data/db
+    networks:
+      - minha-rede
+
+networks:
+  minha-rede:
+    driver: bridge
