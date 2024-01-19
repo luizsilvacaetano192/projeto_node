@@ -1,4 +1,4 @@
-__<p> Api Nodejs banco de dados mongodb, Jwt, Redis, Docker.__</p>__
+__<p> Api Nodejs banco de dados mongodb, Jwt, Redis, Docker-compose.__</p>__
 
 - [x] Autenticação de usuário utilizando validação por validação jwt.
 - [x] Criação de blacklist de token utilizando redis.
