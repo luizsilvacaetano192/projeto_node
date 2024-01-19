@@ -106,7 +106,6 @@ class UserController extends Controller {
 
   async changePassword (req, res, next) {
     const userToChange = await this.service.findUserWhenTypeUnknown({ _id: req.dto.id })
-
     // se role = undefined, é realEstate e portanto chamamos o update do controller de realEstate
     if (typeof userToChange.role === 'undefined') {
       req.dto.resetPassword = true 

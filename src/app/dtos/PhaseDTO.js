@@ -12,7 +12,6 @@ class PhaseDTO {
       'done',
       'identificator',
       'dispatchConfirmation'
-
     ]
 
     let method = ''

@@ -1,17 +1,13 @@
 const Controller = require('./Controller')
 const BankController = require('./RealEstateController')
 
-
 class BanksController extends Controller {
   constructor () {
     super('BankService')
   }
 
-
   async updateAll (body,next,req,res) {
-   
-      
-    
+
       body.banks.forEach(async bank => {
         console.log('bank',bank)
         
@@ -23,11 +19,8 @@ class BanksController extends Controller {
         dto.simulator = bank.simulator;
         dto.commission = bank.commission;
         dto.active = bank.actives;
-        
-
+      
         const a = await this.service.update(bank._id,dto);
-        
-
       })
       return res.status(200).json('ok')
     }

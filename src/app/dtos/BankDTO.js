@@ -67,9 +67,7 @@ class BankDTO {
   setSimulator (simulator) {
     this.simulator = simulator
   }
-  
 
-  
 }
 
 module.exports = BankDTO

@@ -13,9 +13,7 @@ class SimulatorController extends Controller {
   
   async calculed (req, res, next) {
     this.service.scope = req.scope
-
-  
-
+    
     const response = await this.service.calculed(req, res, next)
 
     return res.status(200).send(response)

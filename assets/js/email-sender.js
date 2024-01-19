@@ -14,16 +14,11 @@ const emailSender = {
   subject: 'Simulação -  Crédito Imobiliário',
  
   async sendEmail (message,email) {
-    
     let formData = new URLSearchParams();
-
-    
     formData.append('to',email);
-    
     formData.append('subject', this.subject);
     formData.append('message', message);
 
-    
     const response = await axios.request({
       url : this.url,
       method: 'POST',
@@ -33,7 +28,6 @@ const emailSender = {
 
    
    /* axios.post(this.url, formData, this.config).then((response) => { 
-
       console.log('response',response);
     });*/
   }
