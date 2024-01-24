@@ -5,6 +5,5 @@ node_modules
 __tests__/coverage
 __tests__/database.sqlite
 temp
-src/config/swagger_output.json
 globalConfig.json
 serviceAccountKey.json

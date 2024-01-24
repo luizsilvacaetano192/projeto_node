@@ -1,0 +1,5561 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API Concede",
+    "description": "API da Concede"
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Health",
+      "description": "Checagem de resposta da aplicação"
+    },
+    {
+      "name": "User",
+      "description": "Gerenciamento de usuários"
+    },
+    {
+      "name": "Login",
+      "description": "Gerenciamento endpoints de Login"
+    },
+    {
+      "name": "Banks",
+      "description": "Gerenciamento de bancos"
+    },
+    {
+      "name": "Analysis",
+      "description": "Gerenciamento de Analises"
+    },
+    {
+      "name": "Process",
+      "description": "Gerenciamento de Processos"
+    },
+    {
+      "name": "Real Estate",
+      "description": "Gerenciamento Imobiliárias"
+    },
+    {
+      "name": "Observation",
+      "description": "Gerenciamento de Observações"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "securityDefinitions": {
+    "jwt": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description": "Token de autorização (faça login para pegar o valor). O formato deve ser Bearer asdLKSJFD00i832..."
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/analysis": {
+      "get": {
+        "tags": [
+          "Analysis"
+        ],
+        "description": "Endpoint para retornar todos os dados de Analysis",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "descending",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "pagination",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/AnalysisList"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Analysis"
+        ],
+        "description": "Endpoint para cadastrar uma Análise",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/AddAnalysis"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ItemAnalysis"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "$ref": "#/definitions/LegacyValidationErrors"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/analysis/{id}": {
+      "get": {
+        "tags": [
+          "Analysis"
+        ],
+        "description": "Endpoint para retornar uma analise por id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/AnalysisItem"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Analysis"
+        ],
+        "description": "Endpoint para deletar um usuário",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/AnalysisItem"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/banks": {
+      "get": {
+        "tags": [
+          "Banks"
+        ],
+        "description": "Endpoint para retornar todos os dados de Bancos",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "descending",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "pagination",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/BankList"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Banks"
+        ],
+        "description": "Endpoint para cadastrar um banco",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/AddBank"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ItemBank"
+            }
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "$ref": "#/definitions/LegacyValidationErrors"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/banks/{id}": {
+      "put": {
+        "tags": [
+          "Banks"
+        ],
+        "description": "Endpoint para fazer update de um Bank",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/AddBank"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ItemBank"
+            }
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "$ref": "#/definitions/LegacyValidationErrors"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Banks"
+        ],
+        "description": "Endpoint para deletar um Bank",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Sucesso na deleção"
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "$ref": "#/definitions/LegacyValidationErrors"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/health": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "description": "Endpoint para checagem de resposta da aplicação",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/HealthSuccess"
+            }
+          }
+        }
+      }
+    },
+    "/history/{id}": {
+      "post": {
+        "tags": [
+          "History"
+        ],
+        "description": "Endpoint para cadastrar um novo UserRegister no histórico da Phase",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/AddUserRegister"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ItemUserRegister"
+            }
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "$ref": "#/definitions/LegacyValidationErrors"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "History"
+        ],
+        "description": "Endpoint para fazer update de um History",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/AddUserRegister"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ItemUserRegister"
+            }
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "$ref": "#/definitions/LegacyValidationErrors"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "History"
+        ],
+        "description": "Endpoint para deletar um UserRegister",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "Sucesso na deleção"
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "$ref": "#/definitions/LegacyValidationErrors"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/notification": {
+      "get": {
+        "tags": [
+          "Notification"
+        ],
+        "description": "Endpoint para retornar todas as notificações de um usuário",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/NotificationList"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/notification/{id}": {
+      "put": {
+        "tags": [
+          "Notification"
+        ],
+        "description": "Endpoint para marcar uma notificação como aberta",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/NotificationItem"
+            }
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "$ref": "#/definitions/LegacyValidationErrors"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/observation/process/{id}": {
+      "get": {
+        "tags": [
+          "Observation"
+        ],
+        "description": "Endpoint para retornar observações de um processo",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ObservationProcessItem"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/observation/{id}": {
+      "post": {
+        "tags": [
+          "Observation"
+        ],
+        "description": "Endpoint para cadastrar uma nova observação em uma phase (passando o id da phase)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/AddObservation"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ItemObservation"
+            }
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "$ref": "#/definitions/LegacyValidationErrors"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Observation"
+        ],
+        "description": "Endpoint para editar uma observação",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/AddObservation"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ItemObservation"
+            }
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "$ref": "#/definitions/LegacyValidationErrors"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Observation"
+        ],
+        "description": "Endpoint para deletar uma observação",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ItemObservation"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/phase/{id}": {
+      "get": {
+        "tags": [
+          "Phase"
+        ],
+        "description": "Endpoint para retornar uma phase por id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ItemPhase"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/phase/{id}/{type}": {
+      "put": {
+        "tags": [
+          "Phase"
+        ],
+        "description": "Endpoint para fazer update de uma phase",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/EditPhase"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ItemPhase"
+            }
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "$ref": "#/definitions/LegacyValidationErrors"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/upload/process/phase/{id}": {
+      "post": {
+        "tags": [
+          "Phase"
+        ],
+        "description": "Endpoint para Fazer upload de um document",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/AddBank"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ItemBank"
+            }
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "$ref": "#/definitions/LegacyValidationErrors"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/download-document/{phaseId}": {
+      "put": {
+        "tags": [
+          "Phase"
+        ],
+        "description": "Endpoint para atualizar flag downloaded de arquivo de phase",
+        "parameters": [
+          {
+            "name": "phaseId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "fieldName",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/EditPhaseDocument"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ItemPhase"
+            }
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "$ref": "#/definitions/LegacyValidationErrors"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/process/{id}": {
+      "get": {
+        "tags": [
+          "Process"
+        ],
+        "description": "Endpoint para retornar um process por id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ProcessItem"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Process"
+        ],
+        "description": "Endpoint para deletar um Process",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "Sucesso na deleção"
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "$ref": "#/definitions/LegacyValidationErrors"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/process": {
+      "get": {
+        "tags": [
+          "Process"
+        ],
+        "description": "Endpoint para retornar os dados de Process paginados de acordo com os filtros passados",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "descending",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "pagination",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "bank",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "value",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "phase",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ProcessPaginated2"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Process"
+        ],
+        "description": "Endpoint para cadastrar um process",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/AddProcess"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ProcessItem"
+            }
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "$ref": "#/definitions/LegacyValidationErrors"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/process/user/{id}": {
+      "get": {
+        "tags": [
+          "Process"
+        ],
+        "description": "Endpoint para retornar um process por id de Usuário ou Real Estate",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ProcessList"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/process/buyer/{id}/count": {
+      "get": {
+        "tags": [
+          "Process"
+        ],
+        "description": "Endpoint para retornar um quantia de processos onde o id de comprador passado está registrado",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "number",
+                  "example": 1
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/process-home": {
+      "get": {
+        "tags": [
+          "Process"
+        ],
+        "description": "Endpoint para retornar processos paginados de acordo com o filtro passado na query string",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "descending",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "pagination",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ProcessPaginated"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/process/{id}/history": {
+      "get": {
+        "tags": [
+          "Process"
+        ],
+        "description": "Endpoint para retornar histórico do processo",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ProcessHistory"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/real-estate": {
+      "get": {
+        "tags": [
+          "Real Estate"
+        ],
+        "description": "Endpoint para retornar todos os Real Estate paginados",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "descending",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "pagination",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/RealEstatePaginated"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Real Estate"
+        ],
+        "description": "Endpoint para cadastrar uma Análise",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/AddRealEstate"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ItemRealEstate"
+            }
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "$ref": "#/definitions/LegacyValidationErrors"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/real-estate/search": {
+      "get": {
+        "tags": [
+          "Real Estate"
+        ],
+        "description": "Endpoint para retornar uma analise por id",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "descending",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "pagination",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/RealEstateList"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/real-estate/{id}": {
+      "get": {
+        "tags": [
+          "Real Estate"
+        ],
+        "description": "Endpoint para retornar uma analise por id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ItemRealEstate"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Real Estate"
+        ],
+        "description": "Endpoint para cadastrar uma Análise",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/AddRealEstate"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ItemRealEstate"
+            }
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "$ref": "#/definitions/LegacyValidationErrors"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Real Estate"
+        ],
+        "description": "Endpoint para deletar um usuário",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/ItemRealEstate"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/real-estate/application": {
+      "post": {
+        "tags": [
+          "Real Estate"
+        ],
+        "description": "Endpoint para realizar uma solicitação de criação de nova Imobiliária no sistema",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/RealEstateApplication"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/RealEstateApplication"
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "$ref": "#/definitions/ValidationErrors"
+            }
+          }
+        }
+      }
+    },
+    "/user": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "description": "Endpoint para filtrar usuários por nome e role",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "descending",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "pagination",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/UserList"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "Endpoint que permite usuarios se cadastrarem através do app",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/SelfAddUser"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/UserItem"
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "$ref": "#/definitions/ValidationErrors"
+            }
+          }
+        }
+      }
+    },
+    "/user/{role}": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "Endpoint para cadastrar um usuário",
+        "parameters": [
+          {
+            "name": "role",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/AddUser"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/UserItem"
+            }
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "$ref": "#/definitions/LegacyValidationErrors"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "description": "Endpoint para retornar um usuário por id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/UserItem"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "description": "Endpoint para editar um usuário",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/AddUser"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/UserItem"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "description": "Endpoint para deletar um usuário",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/UserItem"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/user-table": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "description": "Endpoint para retornar todos os dados de Usuários paginados",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "descending",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "pagination",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/UserTableList"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/login": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "description": "Endpoint para fazer login de usuário ou imobiliaria",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/Login"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/LoginResponse"
+            }
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Acesso não autorizado"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/login/refresh": {
+      "post": {
+        "tags": [
+          "Usuario"
+        ],
+        "description": "Endpoint para fazer refresh do token",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/Refresh"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/RefreshResponse"
+            }
+          },
+          "401": {
+            "description": "Resposta de erro",
+            "schema": {
+              "$ref": "#/definitions/NotAuthorizedError"
+            }
+          }
+        }
+      }
+    },
+    "/logout": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "description": "Endpoint para fazer logout de um usuário ou imobiliaria",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "refreshToken": {
+                  "type": "string",
+                  "example": "dc48f4a9353cf65ccc5425d915696a9059cbba6005e63608"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Resposta de sucesso"
+          },
+          "401": {
+            "description": "Resposta de erro",
+            "schema": {
+              "$ref": "#/definitions/NotAuthorizedError"
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/login/token": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "description": "Endpoint para relogar um usuário ou imobiliaria a partir de um token ainda válido (não expirado)",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/LoginRelog"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/LoginResponse"
+            }
+          },
+          "500": {
+            "description": "Erro de validação",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Acesso não autorizado"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/login/recovery-solicitation": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "description": "Endpoint para enviar token para redefinição de senha",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/recoverySolicitation"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "404": {
+            "description": "Resposta de erro",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Não foi possível encontrar Usuário"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/login/recovery": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "description": "Endpoint para realizar mudança de password com token temporário que usuario recebeu por email",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/ChangePasswordWithToken"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Senha alterada"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Resposta de erro",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Não foi possível alterar a senha"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/login/new-password": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "description": "Endpoint para alterar senha de usuário ou imobiliaria",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": "true",
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/ChangePassword"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta de sucesso",
+            "schema": {
+              "$ref": "#/definitions/UserItem"
+            }
+          },
+          "404": {
+            "description": "Resposta de erro",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Acesso não autorizado"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "LegacyValidationErrors": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "boolean",
+          "example": true
+        },
+        "message": {
+          "type": "string",
+          "example": "mensagem de erro"
+        }
+      }
+    },
+    "ValidationErrors": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "campo": {
+                "type": "string",
+                "example": "mensagem de erro"
+              }
+            }
+          }
+        }
+      }
+    },
+    "NotAuthorizedError": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "Acesso não autorizado"
+        }
+      }
+    },
+    "AuthBearer": {
+      "type": "object",
+      "properties": {
+        "Authorization": {
+          "type": "string",
+          "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZmNjkxYWIyLWZjYzMtNGNiNy1hMjM0LWMzYTBlOTEyNzVkNyIsImlhdCI6MTYxNjQ1MTQ4NiwiZXhwIjoxNjE2NDUyMzg2fQ.EBPYRpGZYgRzV619Uejk8Teh2-AyxZvgnwDPCsNuNO4"
+        }
+      }
+    },
+    "HealthSuccess": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "number",
+            "example": 200
+          },
+          "message": {
+            "type": "string",
+            "example": "OK"
+          }
+        }
+      }
+    },
+    "AddUser": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Teste Testerson"
+        },
+        "CPF": {
+          "type": "string",
+          "example": "94319884027"
+        },
+        "email": {
+          "type": "string",
+          "example": "test@test.com"
+        },
+        "phone": {
+          "type": "string",
+          "example": "5555555555"
+        },
+        "birthDate": {
+          "type": "string",
+          "example": "1988-10-31"
+        }
+      }
+    },
+    "UserTableList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "docs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "active": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "isMaster": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "resetPassword": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "_id": {
+                  "type": "string",
+                  "example": "6113dd999647300010603479"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Teste Testerson"
+                },
+                "CPF": {
+                  "type": "string",
+                  "example": "94319884027"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "test@test.com"
+                },
+                "phone": {
+                  "type": "string",
+                  "example": "5555555555"
+                },
+                "realEstate": {
+                  "type": "object",
+                  "properties": {
+                    "resetPassword": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "active": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "_id": {
+                      "type": "string",
+                      "example": "603fdf6f31033a02b25cc484"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Test Real Estate"
+                    },
+                    "CNPJ": {
+                      "type": "string",
+                      "example": "54336984000105"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "test@test.com"
+                    },
+                    "phone": {
+                      "type": "string",
+                      "example": "(55) 55555-5555"
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "$2b$04$doby.peqmkyPsKbbIq1rBuNboNBW3Bm.m55ywHfIR2z6MYSbHrfPu"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "example": "2021-08-21T23:28:31.535Z"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "example": "2021-08-21T23:28:31.535Z"
+                    }
+                  }
+                },
+                "birthDate": {
+                  "type": "string",
+                  "example": "1986-12-14T02:00:00.000Z"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "$2b$04$n3jOgPacAmMLs7Ad1JkLQORw93KAbyVnpbKVn4a1yq6pKJoUMuxE."
+                },
+                "role": {
+                  "type": "string",
+                  "example": "AGENT"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "example": "2021-08-11T14:24:25.936Z"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "example": "2021-08-11T14:41:53.947Z"
+                }
+              }
+            }
+          },
+          "totalDocs": {
+            "type": "number",
+            "example": 0
+          },
+          "limit": {
+            "type": "number",
+            "example": 0
+          },
+          "totalPages": {
+            "type": "number",
+            "example": 1
+          },
+          "page": {
+            "type": "number",
+            "example": 1
+          },
+          "pagingCounter": {
+            "type": "number",
+            "example": 1
+          },
+          "hasPrevPage": {
+            "type": "boolean",
+            "example": false
+          },
+          "hasNextPage": {
+            "type": "boolean",
+            "example": false
+          },
+          "prevPage": {
+            "type": "string",
+            "example": ""
+          },
+          "nextPage": {
+            "type": "string",
+            "example": ""
+          }
+        }
+      }
+    },
+    "UserList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "active": {
+            "type": "boolean",
+            "example": true
+          },
+          "isMaster": {
+            "type": "boolean",
+            "example": false
+          },
+          "resetPassword": {
+            "type": "boolean",
+            "example": true
+          },
+          "_id": {
+            "type": "string",
+            "example": "6113dd999647300010603479"
+          },
+          "name": {
+            "type": "string",
+            "example": "Teste Testerson"
+          },
+          "CPF": {
+            "type": "string",
+            "example": "94319884027"
+          },
+          "email": {
+            "type": "string",
+            "example": "test@test.com"
+          },
+          "phone": {
+            "type": "string",
+            "example": "5555555555"
+          },
+          "realEstate": {
+            "type": "string",
+            "example": "5fce5c6438b2b070635dd595"
+          },
+          "birthDate": {
+            "type": "string",
+            "example": "1986-12-14T02:00:00.000Z"
+          },
+          "password": {
+            "type": "string",
+            "example": "$2b$04$n3jOgPacAmMLs7Ad1JkLQORw93KAbyVnpbKVn4a1yq6pKJoUMuxE."
+          },
+          "role": {
+            "type": "string",
+            "example": "AGENT"
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2021-08-11T14:24:25.936Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "example": "2021-08-11T14:41:53.947Z"
+          }
+        }
+      }
+    },
+    "UserItem": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "boolean",
+          "example": true
+        },
+        "isMaster": {
+          "type": "boolean",
+          "example": false
+        },
+        "resetPassword": {
+          "type": "boolean",
+          "example": true
+        },
+        "_id": {
+          "type": "string",
+          "example": "6113dd999647300010603479"
+        },
+        "name": {
+          "type": "string",
+          "example": "Teste Testerson"
+        },
+        "CPF": {
+          "type": "string",
+          "example": "94319884027"
+        },
+        "email": {
+          "type": "string",
+          "example": "test@test.com"
+        },
+        "phone": {
+          "type": "string",
+          "example": "5555555555"
+        },
+        "realEstate": {
+          "type": "object",
+          "properties": {
+            "resetPassword": {
+              "type": "boolean",
+              "example": true
+            },
+            "active": {
+              "type": "boolean",
+              "example": true
+            },
+            "_id": {
+              "type": "string",
+              "example": "603fdf6f31033a02b25cc484"
+            },
+            "name": {
+              "type": "string",
+              "example": "Test Real Estate"
+            },
+            "CNPJ": {
+              "type": "string",
+              "example": "54336984000105"
+            },
+            "email": {
+              "type": "string",
+              "example": "test@test.com"
+            },
+            "phone": {
+              "type": "string",
+              "example": "(55) 55555-5555"
+            },
+            "password": {
+              "type": "string",
+              "example": "$2b$04$doby.peqmkyPsKbbIq1rBuNboNBW3Bm.m55ywHfIR2z6MYSbHrfPu"
+            },
+            "createdAt": {
+              "type": "string",
+              "example": "2021-08-21T23:28:31.535Z"
+            },
+            "updatedAt": {
+              "type": "string",
+              "example": "2021-08-21T23:28:31.535Z"
+            }
+          }
+        },
+        "birthDate": {
+          "type": "string",
+          "example": "1986-12-14T02:00:00.000Z"
+        },
+        "password": {
+          "type": "string",
+          "example": "$2b$04$n3jOgPacAmMLs7Ad1JkLQORw93KAbyVnpbKVn4a1yq6pKJoUMuxE."
+        },
+        "role": {
+          "type": "string",
+          "example": "AGENT"
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2021-08-11T14:24:25.936Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-08-11T14:41:53.947Z"
+        }
+      }
+    },
+    "SelfAddUser": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Test self added user"
+        },
+        "CPF": {
+          "type": "string",
+          "example": "73549642040"
+        },
+        "email": {
+          "type": "string",
+          "example": "selfUserTest@test.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "Password@123"
+        },
+        "phone": {
+          "type": "string",
+          "example": "51991818861"
+        },
+        "birthDate": {
+          "type": "string",
+          "example": "1988-10-31"
+        },
+        "role": {
+          "type": "string",
+          "example": "MANAGER"
+        },
+        "realEstate": {
+          "type": "string",
+          "example": "617df40d5f3529077284903d"
+        }
+      }
+    },
+    "AddBank": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "BANCOTESTE"
+        },
+        "commission": {
+          "type": "number",
+          "example": 0.05
+        },
+        "active": {
+          "type": "boolean",
+          "example": true
+        }
+      }
+    },
+    "ItemBank": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "boolean",
+          "example": true
+        },
+        "_id": {
+          "type": "string",
+          "example": "611683fc54c2ce028b659d07"
+        },
+        "name": {
+          "type": "string",
+          "example": "BANCOTESTE"
+        },
+        "commission": {
+          "type": "number",
+          "example": 0.05
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2021-08-13T14:38:52.555Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-08-13T14:38:52.555Z"
+        },
+        "commissionPercentage": {
+          "type": "number",
+          "example": 5
+        },
+        "id": {
+          "type": "string",
+          "example": "611683fc54c2ce028b659d07"
+        }
+      }
+    },
+    "BankList": {
+      "type": "object",
+      "properties": {
+        "docs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "active": {
+                "type": "boolean",
+                "example": true
+              },
+              "_id": {
+                "type": "string",
+                "example": "61167eabc3a7780130c4f8e5"
+              },
+              "name": {
+                "type": "string",
+                "example": "BANCOTESTE"
+              },
+              "commission": {
+                "type": "number",
+                "example": 0.01
+              },
+              "createdAt": {
+                "type": "string",
+                "example": "2021-08-13T14:16:11.899Z"
+              },
+              "updatedAt": {
+                "type": "string",
+                "example": "2021-08-13T14:16:11.899Z"
+              },
+              "commissionPercentage": {
+                "type": "number",
+                "example": 1
+              },
+              "id": {
+                "type": "string",
+                "example": "61167eabc3a7780130c4f8e5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "AddAnalysis": {
+      "type": "object",
+      "properties": {
+        "buyer": {
+          "type": "object",
+          "properties": {
+            "CPF": {
+              "type": "string",
+              "example": "94319884027"
+            }
+          }
+        },
+        "immobileValue": {
+          "type": "number",
+          "example": 50000
+        },
+        "requestUserId": {
+          "type": "string",
+          "example": "6121ae3d5c753706b1a584ce"
+        }
+      }
+    },
+    "AnalysisList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "docs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "active": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "_id": {
+                  "type": "string",
+                  "example": "611d49a82bcac60138170153"
+                },
+                "buyer": {
+                  "type": "object",
+                  "properties": {
+                    "CPF": {
+                      "type": "number",
+                      "example": 36924434800
+                    }
+                  }
+                },
+                "value": {
+                  "type": "number",
+                  "example": 250000
+                },
+                "manager": {
+                  "type": "object",
+                  "properties": {
+                    "active": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "isMaster": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "resetPassword": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "_id": {
+                      "type": "string",
+                      "example": "6121ae3d5c753706b1a584ce"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Teste Manager"
+                    },
+                    "CPF": {
+                      "type": "string",
+                      "example": "94319884027"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "test@test.com"
+                    },
+                    "phone": {
+                      "type": "string",
+                      "example": "55555555555"
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "$2b$04$n2i.ay6G1T8uZVWsOpYAfeAh8rK.Hg9mauavvtS86wpyWgS87s30q"
+                    },
+                    "role": {
+                      "type": "string",
+                      "example": "MANAGER"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "example": "2021-08-22T01:54:05.804Z"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "example": "2021-08-22T02:45:23.551Z"
+                    }
+                  }
+                },
+                "createdAt": {
+                  "type": "string",
+                  "example": "2021-08-18T17:55:52.190Z"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "example": "2021-08-18T17:55:52.190Z"
+                }
+              }
+            }
+          },
+          "totalDocs": {
+            "type": "number",
+            "example": 0
+          },
+          "limit": {
+            "type": "number",
+            "example": 0
+          },
+          "totalPages": {
+            "type": "number",
+            "example": 1
+          },
+          "page": {
+            "type": "number",
+            "example": 1
+          },
+          "pagingCounter": {
+            "type": "number",
+            "example": 1
+          },
+          "hasPrevPage": {
+            "type": "boolean",
+            "example": false
+          },
+          "hasNextPage": {
+            "type": "boolean",
+            "example": false
+          },
+          "prevPage": {
+            "type": "string",
+            "example": ""
+          },
+          "nextPage": {
+            "type": "string",
+            "example": ""
+          }
+        }
+      }
+    },
+    "AnalysisItem": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "boolean",
+          "example": true
+        },
+        "_id": {
+          "type": "string",
+          "example": "611d49a82bcac60138170153"
+        },
+        "buyer": {
+          "type": "object",
+          "properties": {
+            "CPF": {
+              "type": "number",
+              "example": 36924434800
+            }
+          }
+        },
+        "value": {
+          "type": "number",
+          "example": 250000
+        },
+        "manager": {
+          "type": "object",
+          "properties": {
+            "active": {
+              "type": "boolean",
+              "example": true
+            },
+            "isMaster": {
+              "type": "boolean",
+              "example": false
+            },
+            "resetPassword": {
+              "type": "boolean",
+              "example": true
+            },
+            "_id": {
+              "type": "string",
+              "example": "6121ae3d5c753706b1a584ce"
+            },
+            "name": {
+              "type": "string",
+              "example": "Teste Manager"
+            },
+            "CPF": {
+              "type": "string",
+              "example": "94319884027"
+            },
+            "email": {
+              "type": "string",
+              "example": "test@test.com"
+            },
+            "phone": {
+              "type": "string",
+              "example": "55555555555"
+            },
+            "password": {
+              "type": "string",
+              "example": "$2b$04$n2i.ay6G1T8uZVWsOpYAfeAh8rK.Hg9mauavvtS86wpyWgS87s30q"
+            },
+            "role": {
+              "type": "string",
+              "example": "MANAGER"
+            },
+            "createdAt": {
+              "type": "string",
+              "example": "2021-08-22T01:54:05.804Z"
+            },
+            "updatedAt": {
+              "type": "string",
+              "example": "2021-08-22T02:45:23.551Z"
+            }
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2021-08-18T17:55:52.190Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-08-18T17:55:52.190Z"
+        }
+      }
+    },
+    "ProcessList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "phases": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "observation": {
+                  "type": "array",
+                  "example": [],
+                  "items": {}
+                },
+                "docs": {
+                  "type": "array",
+                  "example": [],
+                  "items": {}
+                },
+                "done": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "_id": {
+                  "type": "string",
+                  "example": "613160207cd66e002ada92dd"
+                },
+                "status": {
+                  "type": "object",
+                  "properties": {
+                    "contractSended": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "fundReleased": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "finished": {
+                      "type": "boolean",
+                      "example": false
+                    }
+                  }
+                },
+                "detail": {
+                  "type": "object",
+                  "properties": {
+                    "submissionDate": {
+                      "type": "string",
+                      "example": "null"
+                    }
+                  }
+                },
+                "identificator": {
+                  "type": "number",
+                  "example": 6
+                },
+                "createdAt": {
+                  "type": "string",
+                  "example": "2021-09-02T23:37:04.665Z"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "example": "2021-09-02T23:37:04.665Z"
+                }
+              }
+            }
+          },
+          "archived": {
+            "type": "boolean",
+            "example": false
+          },
+          "active": {
+            "type": "boolean",
+            "example": true
+          },
+          "_id": {
+            "type": "string",
+            "example": "613160207cd66e002ada92df"
+          },
+          "bank": {
+            "type": "object",
+            "properties": {
+              "active": {
+                "type": "boolean",
+                "example": true
+              },
+              "_id": {
+                "type": "string",
+                "example": "5f32cfeaf6132c001705941f"
+              },
+              "name": {
+                "type": "string",
+                "example": "ITAÚ"
+              },
+              "commission": {
+                "type": "number",
+                "example": 0.008
+              },
+              "createdAt": {
+                "type": "string",
+                "example": "2020-08-11T17:05:46.903Z"
+              },
+              "updatedAt": {
+                "type": "string",
+                "example": "2020-08-11T17:05:46.903Z"
+              },
+              "commissionPercentage": {
+                "type": "number",
+                "example": 0.8
+              },
+              "id": {
+                "type": "string",
+                "example": "5f32cfeaf6132c001705941f"
+              }
+            }
+          },
+          "buyer": {
+            "type": "object",
+            "properties": {
+              "active": {
+                "type": "boolean",
+                "example": true
+              },
+              "isMaster": {
+                "type": "boolean",
+                "example": false
+              },
+              "resetPassword": {
+                "type": "boolean",
+                "example": false
+              },
+              "_id": {
+                "type": "string",
+                "example": "612e47168ed5e600388311b2"
+              },
+              "name": {
+                "type": "string",
+                "example": "BRUNO DAMIATI"
+              },
+              "CPF": {
+                "type": "string",
+                "example": "36924434800"
+              },
+              "email": {
+                "type": "string",
+                "example": "bhdamiati@gmail.com"
+              },
+              "phone": {
+                "type": "string",
+                "example": "43991125243"
+              },
+              "password": {
+                "type": "string",
+                "example": "$2b$04$9hhx9xq4ZmRGilCGZby9WuoWxvh8ZYFPhj..x6/XS19LaoStwV/mu"
+              },
+              "role": {
+                "type": "string",
+                "example": "BUYER"
+              },
+              "createdAt": {
+                "type": "string",
+                "example": "2021-08-31T15:13:26.105Z"
+              },
+              "updatedAt": {
+                "type": "string",
+                "example": "2021-08-31T15:13:26.105Z"
+              }
+            }
+          },
+          "currentPhase": {
+            "type": "object",
+            "properties": {
+              "observation": {
+                "type": "array",
+                "example": [],
+                "items": {}
+              },
+              "docs": {
+                "type": "array",
+                "example": [],
+                "items": {}
+              },
+              "done": {
+                "type": "boolean",
+                "example": false
+              },
+              "_id": {
+                "type": "string",
+                "example": "613160207cd66e002ada92d8"
+              },
+              "status": {
+                "type": "object",
+                "properties": {
+                  "creditAnalysis": {
+                    "type": "boolean",
+                    "example": false
+                  }
+                }
+              },
+              "detail": {
+                "type": "object",
+                "properties": {
+                  "bank": {
+                    "type": "string",
+                    "example": "null"
+                  },
+                  "bankAgency": {
+                    "type": "string",
+                    "example": "null"
+                  },
+                  "CCA": {
+                    "type": "string",
+                    "example": "null"
+                  },
+                  "immobileValue": {
+                    "type": "string",
+                    "example": "null"
+                  },
+                  "buyAndSell": {
+                    "type": "string",
+                    "example": "null"
+                  },
+                  "dispatchValue": {
+                    "type": "string",
+                    "example": "null"
+                  },
+                  "financedValue": {
+                    "type": "number",
+                    "example": 150000
+                  },
+                  "status": {
+                    "type": "string",
+                    "example": "null"
+                  },
+                  "valueAproved": {
+                    "type": "string",
+                    "example": "null"
+                  },
+                  "financedPercentage": {
+                    "type": "string",
+                    "example": "null"
+                  }
+                }
+              },
+              "identificator": {
+                "type": "number",
+                "example": 1
+              },
+              "createdAt": {
+                "type": "string",
+                "example": "2021-09-02T23:37:04.665Z"
+              },
+              "updatedAt": {
+                "type": "string",
+                "example": "2021-09-02T23:37:04.677Z"
+              },
+              "history": {
+                "type": "string",
+                "example": "613160207cd66e002ada92de"
+              }
+            }
+          },
+          "value": {
+            "type": "number",
+            "example": 150000
+          },
+          "manager": {
+            "type": "object",
+            "properties": {
+              "active": {
+                "type": "boolean",
+                "example": true
+              },
+              "isMaster": {
+                "type": "boolean",
+                "example": false
+              },
+              "resetPassword": {
+                "type": "boolean",
+                "example": true
+              },
+              "_id": {
+                "type": "string",
+                "example": "5f3197f3f6132c001705941e"
+              },
+              "name": {
+                "type": "string",
+                "example": "BRUNO DAMIATI"
+              },
+              "CPF": {
+                "type": "string",
+                "example": "48573548029"
+              },
+              "email": {
+                "type": "string",
+                "example": "bhdamiati@gmail.com"
+              },
+              "phone": {
+                "type": "string",
+                "example": "43991125243"
+              },
+              "realEstate": {
+                "type": "string",
+                "example": "5f31977ef6132c001705941d"
+              },
+              "birthDate": {
+                "type": "string",
+                "example": "null"
+              },
+              "password": {
+                "type": "string",
+                "example": "$2b$04$9U9aFQ7PBYpnXQa4.1gBiuANSELcpkiAlgEUtWfbpcRM7Zld5xXVm"
+              },
+              "role": {
+                "type": "string",
+                "example": "MANAGER"
+              },
+              "createdAt": {
+                "type": "string",
+                "example": "2020-08-10T18:54:43.151Z"
+              },
+              "updatedAt": {
+                "type": "string",
+                "example": "2020-10-14T15:48:09.056Z"
+              }
+            }
+          },
+          "agent": {
+            "type": "object",
+            "properties": {
+              "active": {
+                "type": "boolean",
+                "example": true
+              },
+              "isMaster": {
+                "type": "boolean",
+                "example": false
+              },
+              "resetPassword": {
+                "type": "boolean",
+                "example": true
+              },
+              "_id": {
+                "type": "string",
+                "example": "5f32cfb438fea50010e3c33b"
+              },
+              "name": {
+                "type": "string",
+                "example": "BRUNO DAMIATI"
+              },
+              "CPF": {
+                "type": "string",
+                "example": "12233996054"
+              },
+              "email": {
+                "type": "string",
+                "example": "bhdamiati@gmail.com"
+              },
+              "phone": {
+                "type": "string",
+                "example": "43991125243"
+              },
+              "realEstate": {
+                "type": "string",
+                "example": "5f31977ef6132c001705941d"
+              },
+              "birthDate": {
+                "type": "string",
+                "example": "null"
+              },
+              "password": {
+                "type": "string",
+                "example": "$2b$04$47apTddQFKhtakRGfCdTXucZcFjGsHRR.wIoKvVdQwHazFNQAOzmy"
+              },
+              "role": {
+                "type": "string",
+                "example": "AGENT"
+              },
+              "createdAt": {
+                "type": "string",
+                "example": "2020-08-11T17:04:52.977Z"
+              },
+              "updatedAt": {
+                "type": "string",
+                "example": "2021-03-19T00:19:39.955Z"
+              },
+              "notificationToken": {
+                "type": "string",
+                "example": "fdkwk4SESsisN40DaX3K3s:APA91bESjzu0xy1qIGdd39auSVx0eQ4vA_m2aKiQxqDTAY28gmcw_038E3tQ2BubMelQMBdXQkbFgutJsD1C1ggZ1gJxYdRMXpw5_IEj9S67zCZGv-lOEhBoiTqbaY-xHQkVRUSsr8jp"
+              }
+            }
+          },
+          "seller": {
+            "type": "object",
+            "properties": {
+              "active": {
+                "type": "boolean",
+                "example": true
+              },
+              "isMaster": {
+                "type": "boolean",
+                "example": false
+              },
+              "resetPassword": {
+                "type": "boolean",
+                "example": false
+              },
+              "_id": {
+                "type": "string",
+                "example": "5f32d4e7f6132c0017059427"
+              },
+              "name": {
+                "type": "string",
+                "example": "BRUNO DAMIATI"
+              },
+              "CPF": {
+                "type": "string",
+                "example": "19407898000154"
+              },
+              "email": {
+                "type": "string",
+                "example": "bhdamiati@gmail.com"
+              },
+              "password": {
+                "type": "string",
+                "example": "$2b$04$jHHEtTaAljFO80YWG.WXQ.9OBPtxkJ9K5TT2Kg.zcO1nnza44VIX."
+              },
+              "role": {
+                "type": "string",
+                "example": "SELLER"
+              },
+              "createdAt": {
+                "type": "string",
+                "example": "2020-08-11T17:27:03.107Z"
+              },
+              "updatedAt": {
+                "type": "string",
+                "example": "2021-09-02T23:40:19.948Z"
+              },
+              "phone": {
+                "type": "string",
+                "example": "43991125243"
+              }
+            }
+          },
+          "responsible": {
+            "type": "string",
+            "example": "5f2ac5c190bac50c158ebf0c"
+          },
+          "agentCommission": {
+            "type": "number",
+            "example": 0.06
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2021-09-02T23:37:04.689Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "example": "2021-09-02T23:37:04.689Z"
+          }
+        }
+      }
+    },
+    "ProcessItem": {
+      "type": "object",
+      "properties": {
+        "phases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "observation": {
+                "type": "array",
+                "example": [],
+                "items": {}
+              },
+              "docs": {
+                "type": "array",
+                "example": [],
+                "items": {}
+              },
+              "done": {
+                "type": "boolean",
+                "example": false
+              },
+              "_id": {
+                "type": "string",
+                "example": "613160207cd66e002ada92dd"
+              },
+              "status": {
+                "type": "object",
+                "properties": {
+                  "contractSended": {
+                    "type": "boolean",
+                    "example": false
+                  },
+                  "fundReleased": {
+                    "type": "boolean",
+                    "example": false
+                  },
+                  "finished": {
+                    "type": "boolean",
+                    "example": false
+                  }
+                }
+              },
+              "detail": {
+                "type": "object",
+                "properties": {
+                  "submissionDate": {
+                    "type": "string",
+                    "example": "null"
+                  }
+                }
+              },
+              "identificator": {
+                "type": "number",
+                "example": 6
+              },
+              "createdAt": {
+                "type": "string",
+                "example": "2021-09-02T23:37:04.665Z"
+              },
+              "updatedAt": {
+                "type": "string",
+                "example": "2021-09-02T23:37:04.665Z"
+              }
+            }
+          }
+        },
+        "archived": {
+          "type": "boolean",
+          "example": false
+        },
+        "active": {
+          "type": "boolean",
+          "example": true
+        },
+        "_id": {
+          "type": "string",
+          "example": "613160207cd66e002ada92df"
+        },
+        "bank": {
+          "type": "object",
+          "properties": {
+            "active": {
+              "type": "boolean",
+              "example": true
+            },
+            "_id": {
+              "type": "string",
+              "example": "5f32cfeaf6132c001705941f"
+            },
+            "name": {
+              "type": "string",
+              "example": "ITAÚ"
+            },
+            "commission": {
+              "type": "number",
+              "example": 0.008
+            },
+            "createdAt": {
+              "type": "string",
+              "example": "2020-08-11T17:05:46.903Z"
+            },
+            "updatedAt": {
+              "type": "string",
+              "example": "2020-08-11T17:05:46.903Z"
+            },
+            "commissionPercentage": {
+              "type": "number",
+              "example": 0.8
+            },
+            "id": {
+              "type": "string",
+              "example": "5f32cfeaf6132c001705941f"
+            }
+          }
+        },
+        "buyer": {
+          "type": "object",
+          "properties": {
+            "active": {
+              "type": "boolean",
+              "example": true
+            },
+            "isMaster": {
+              "type": "boolean",
+              "example": false
+            },
+            "resetPassword": {
+              "type": "boolean",
+              "example": false
+            },
+            "_id": {
+              "type": "string",
+              "example": "612e47168ed5e600388311b2"
+            },
+            "name": {
+              "type": "string",
+              "example": "BRUNO DAMIATI"
+            },
+            "CPF": {
+              "type": "string",
+              "example": "36924434800"
+            },
+            "email": {
+              "type": "string",
+              "example": "bhdamiati@gmail.com"
+            },
+            "phone": {
+              "type": "string",
+              "example": "43991125243"
+            },
+            "password": {
+              "type": "string",
+              "example": "$2b$04$9hhx9xq4ZmRGilCGZby9WuoWxvh8ZYFPhj..x6/XS19LaoStwV/mu"
+            },
+            "role": {
+              "type": "string",
+              "example": "BUYER"
+            },
+            "createdAt": {
+              "type": "string",
+              "example": "2021-08-31T15:13:26.105Z"
+            },
+            "updatedAt": {
+              "type": "string",
+              "example": "2021-08-31T15:13:26.105Z"
+            }
+          }
+        },
+        "currentPhase": {
+          "type": "object",
+          "properties": {
+            "observation": {
+              "type": "array",
+              "example": [],
+              "items": {}
+            },
+            "docs": {
+              "type": "array",
+              "example": [],
+              "items": {}
+            },
+            "done": {
+              "type": "boolean",
+              "example": false
+            },
+            "_id": {
+              "type": "string",
+              "example": "613160207cd66e002ada92d8"
+            },
+            "status": {
+              "type": "object",
+              "properties": {
+                "creditAnalysis": {
+                  "type": "boolean",
+                  "example": false
+                }
+              }
+            },
+            "detail": {
+              "type": "object",
+              "properties": {
+                "bank": {
+                  "type": "string",
+                  "example": "null"
+                },
+                "bankAgency": {
+                  "type": "string",
+                  "example": "null"
+                },
+                "CCA": {
+                  "type": "string",
+                  "example": "null"
+                },
+                "immobileValue": {
+                  "type": "string",
+                  "example": "null"
+                },
+                "buyAndSell": {
+                  "type": "string",
+                  "example": "null"
+                },
+                "dispatchValue": {
+                  "type": "string",
+                  "example": "null"
+                },
+                "financedValue": {
+                  "type": "number",
+                  "example": 150000
+                },
+                "status": {
+                  "type": "string",
+                  "example": "null"
+                },
+                "valueAproved": {
+                  "type": "string",
+                  "example": "null"
+                },
+                "financedPercentage": {
+                  "type": "string",
+                  "example": "null"
+                }
+              }
+            },
+            "identificator": {
+              "type": "number",
+              "example": 1
+            },
+            "createdAt": {
+              "type": "string",
+              "example": "2021-09-02T23:37:04.665Z"
+            },
+            "updatedAt": {
+              "type": "string",
+              "example": "2021-09-02T23:37:04.677Z"
+            },
+            "history": {
+              "type": "string",
+              "example": "613160207cd66e002ada92de"
+            }
+          }
+        },
+        "value": {
+          "type": "number",
+          "example": 150000
+        },
+        "manager": {
+          "type": "object",
+          "properties": {
+            "active": {
+              "type": "boolean",
+              "example": true
+            },
+            "isMaster": {
+              "type": "boolean",
+              "example": false
+            },
+            "resetPassword": {
+              "type": "boolean",
+              "example": true
+            },
+            "_id": {
+              "type": "string",
+              "example": "5f3197f3f6132c001705941e"
+            },
+            "name": {
+              "type": "string",
+              "example": "BRUNO DAMIATI"
+            },
+            "CPF": {
+              "type": "string",
+              "example": "48573548029"
+            },
+            "email": {
+              "type": "string",
+              "example": "bhdamiati@gmail.com"
+            },
+            "phone": {
+              "type": "string",
+              "example": "43991125243"
+            },
+            "realEstate": {
+              "type": "string",
+              "example": "5f31977ef6132c001705941d"
+            },
+            "birthDate": {
+              "type": "string",
+              "example": "null"
+            },
+            "password": {
+              "type": "string",
+              "example": "$2b$04$9U9aFQ7PBYpnXQa4.1gBiuANSELcpkiAlgEUtWfbpcRM7Zld5xXVm"
+            },
+            "role": {
+              "type": "string",
+              "example": "MANAGER"
+            },
+            "createdAt": {
+              "type": "string",
+              "example": "2020-08-10T18:54:43.151Z"
+            },
+            "updatedAt": {
+              "type": "string",
+              "example": "2020-10-14T15:48:09.056Z"
+            }
+          }
+        },
+        "agent": {
+          "type": "object",
+          "properties": {
+            "active": {
+              "type": "boolean",
+              "example": true
+            },
+            "isMaster": {
+              "type": "boolean",
+              "example": false
+            },
+            "resetPassword": {
+              "type": "boolean",
+              "example": true
+            },
+            "_id": {
+              "type": "string",
+              "example": "5f32cfb438fea50010e3c33b"
+            },
+            "name": {
+              "type": "string",
+              "example": "BRUNO DAMIATI"
+            },
+            "CPF": {
+              "type": "string",
+              "example": "12233996054"
+            },
+            "email": {
+              "type": "string",
+              "example": "bhdamiati@gmail.com"
+            },
+            "phone": {
+              "type": "string",
+              "example": "43991125243"
+            },
+            "realEstate": {
+              "type": "string",
+              "example": "5f31977ef6132c001705941d"
+            },
+            "birthDate": {
+              "type": "string",
+              "example": "null"
+            },
+            "password": {
+              "type": "string",
+              "example": "$2b$04$47apTddQFKhtakRGfCdTXucZcFjGsHRR.wIoKvVdQwHazFNQAOzmy"
+            },
+            "role": {
+              "type": "string",
+              "example": "AGENT"
+            },
+            "createdAt": {
+              "type": "string",
+              "example": "2020-08-11T17:04:52.977Z"
+            },
+            "updatedAt": {
+              "type": "string",
+              "example": "2021-03-19T00:19:39.955Z"
+            },
+            "notificationToken": {
+              "type": "string",
+              "example": "fdkwk4SESsisN40DaX3K3s:APA91bESjzu0xy1qIGdd39auSVx0eQ4vA_m2aKiQxqDTAY28gmcw_038E3tQ2BubMelQMBdXQkbFgutJsD1C1ggZ1gJxYdRMXpw5_IEj9S67zCZGv-lOEhBoiTqbaY-xHQkVRUSsr8jp"
+            }
+          }
+        },
+        "seller": {
+          "type": "object",
+          "properties": {
+            "active": {
+              "type": "boolean",
+              "example": true
+            },
+            "isMaster": {
+              "type": "boolean",
+              "example": false
+            },
+            "resetPassword": {
+              "type": "boolean",
+              "example": false
+            },
+            "_id": {
+              "type": "string",
+              "example": "5f32d4e7f6132c0017059427"
+            },
+            "name": {
+              "type": "string",
+              "example": "BRUNO DAMIATI"
+            },
+            "CPF": {
+              "type": "string",
+              "example": "19407898000154"
+            },
+            "email": {
+              "type": "string",
+              "example": "bhdamiati@gmail.com"
+            },
+            "password": {
+              "type": "string",
+              "example": "$2b$04$jHHEtTaAljFO80YWG.WXQ.9OBPtxkJ9K5TT2Kg.zcO1nnza44VIX."
+            },
+            "role": {
+              "type": "string",
+              "example": "SELLER"
+            },
+            "createdAt": {
+              "type": "string",
+              "example": "2020-08-11T17:27:03.107Z"
+            },
+            "updatedAt": {
+              "type": "string",
+              "example": "2021-09-02T23:40:19.948Z"
+            },
+            "phone": {
+              "type": "string",
+              "example": "43991125243"
+            }
+          }
+        },
+        "responsible": {
+          "type": "string",
+          "example": "5f2ac5c190bac50c158ebf0c"
+        },
+        "agentCommission": {
+          "type": "number",
+          "example": 0.06
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2021-09-02T23:37:04.689Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-02T23:37:04.689Z"
+        }
+      }
+    },
+    "AddProcess": {
+      "type": "object",
+      "properties": {
+        "bank": {
+          "type": "string",
+          "example": "5f32cfeaf6132c001705941f"
+        },
+        "buyer": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "example": "BRUNO DAMIATI"
+            },
+            "CPF": {
+              "type": "string",
+              "example": "12233996054"
+            },
+            "email": {
+              "type": "string",
+              "example": "bhdamiati@gmail.com"
+            },
+            "phone": {
+              "type": "string",
+              "example": "43991125243"
+            }
+          }
+        },
+        "manager": {
+          "type": "string",
+          "example": "5f3197f3f6132c001705941e"
+        },
+        "agent": {
+          "type": "string",
+          "example": "5f32cfb438fea50010e3c33b"
+        },
+        "seller": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "example": "BRUNO DAMIATI"
+            },
+            "CPF": {
+              "type": "string",
+              "example": "65507982058"
+            },
+            "email": {
+              "type": "string",
+              "example": "bhdamiati@gmail.com"
+            },
+            "phone": {
+              "type": "string",
+              "example": "43991125243"
+            }
+          }
+        },
+        "detail": {
+          "type": "object",
+          "properties": {
+            "bank": {
+              "type": "string",
+              "example": "null"
+            },
+            "bankAgency": {
+              "type": "string",
+              "example": "null"
+            },
+            "CCA": {
+              "type": "string",
+              "example": "null"
+            },
+            "immobileValue": {
+              "type": "string",
+              "example": "null"
+            },
+            "buyAndSell": {
+              "type": "string",
+              "example": "null"
+            },
+            "dispatchValue": {
+              "type": "string",
+              "example": "null"
+            },
+            "financedValue": {
+              "type": "number",
+              "example": 150000
+            },
+            "status": {
+              "type": "string",
+              "example": "null"
+            },
+            "valueAproved": {
+              "type": "string",
+              "example": "null"
+            },
+            "financedPercentage": {
+              "type": "string",
+              "example": "null"
+            }
+          }
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "creditAnalysis": {
+              "type": "boolean",
+              "example": false
+            }
+          }
+        },
+        "idAnalysis": {
+          "type": "string",
+          "example": "5f52849aa94d670010d8d19a"
+        },
+        "administratorId": {
+          "type": "string",
+          "example": "5f2ac5c190bac50c158ebf0c"
+        },
+        "agentCommission": {
+          "type": "number",
+          "example": 0.06
+        }
+      }
+    },
+    "ProcessPaginated": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "number",
+          "example": 13
+        },
+        "docs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "_id": {
+                "type": "string",
+                "example": "5f4951c40766fb001004bd44"
+              },
+              "phases": {
+                "type": "array",
+                "example": [
+                  "5f4951c40766fb001004bd3c",
+                  "5f4951c40766fb001004bd3d",
+                  "5f4951c40766fb001004bd3e",
+                  "5f4951c40766fb001004bd3f",
+                  "5f4951c40766fb001004bd40",
+                  "5f4951c40766fb001004bd41"
+                ],
+                "items": {
+                  "type": "string"
+                }
+              },
+              "archived": {
+                "type": "boolean",
+                "example": false
+              },
+              "active": {
+                "type": "boolean",
+                "example": true
+              },
+              "bank": {
+                "type": "object",
+                "properties": {
+                  "_id": {
+                    "type": "string",
+                    "example": "5f35435af6132c001705947a"
+                  },
+                  "active": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "CAIXA - SBPE"
+                  },
+                  "commission": {
+                    "type": "number",
+                    "example": 0.011000000000000001
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "example": "2020-08-13T13:42:50.994Z"
+                  },
+                  "updatedAt": {
+                    "type": "string",
+                    "example": "2020-08-13T13:42:50.994Z"
+                  }
+                }
+              },
+              "buyer": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "TEST BUYER "
+                  },
+                  "CPF": {
+                    "type": "string",
+                    "example": "05894559073"
+                  }
+                }
+              },
+              "currentPhase": {
+                "type": "object",
+                "properties": {
+                  "_id": {
+                    "type": "string",
+                    "example": "5f4951c40766fb001004bd3c"
+                  },
+                  "observation": {
+                    "type": "array",
+                    "example": [],
+                    "items": {}
+                  },
+                  "docs": {
+                    "type": "array",
+                    "example": [],
+                    "items": {}
+                  },
+                  "done": {
+                    "type": "boolean",
+                    "example": false
+                  },
+                  "status": {
+                    "type": "object",
+                    "properties": {
+                      "creditAnalysis": {
+                        "type": "boolean",
+                        "example": true
+                      }
+                    }
+                  },
+                  "detail": {
+                    "type": "object",
+                    "properties": {
+                      "bank": {
+                        "type": "string",
+                        "example": "CAIXA - SBPE"
+                      },
+                      "bankAgency": {
+                        "type": "string",
+                        "example": "0449"
+                      },
+                      "CCA": {
+                        "type": "string",
+                        "example": "670421"
+                      },
+                      "immobileValue": {
+                        "type": "number",
+                        "example": 185000
+                      },
+                      "buyAndSell": {
+                        "type": "number",
+                        "example": 18.5
+                      },
+                      "dispatchValue": {
+                        "type": "number",
+                        "example": 500
+                      },
+                      "financedValue": {
+                        "type": "number",
+                        "example": 148000
+                      },
+                      "status": {
+                        "type": "string",
+                        "example": "approved"
+                      },
+                      "valueAproved": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "financedPercentage": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "buyer": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "example": "TEST BUYER "
+                          },
+                          "CPF": {
+                            "type": "string",
+                            "example": "05894559073"
+                          },
+                          "email": {
+                            "type": "string",
+                            "example": "test@test.com.br"
+                          },
+                          "phone": {
+                            "type": "string",
+                            "example": "99999999999"
+                          }
+                        }
+                      },
+                      "seller": {
+                        "type": "object",
+                        "properties": {
+                          "active": {
+                            "type": "boolean",
+                            "example": true
+                          },
+                          "isMaster": {
+                            "type": "boolean",
+                            "example": false
+                          },
+                          "resetPassword": {
+                            "type": "boolean",
+                            "example": false
+                          },
+                          "_id": {
+                            "type": "string",
+                            "example": "5f3fc0d1f6132c00170594ef"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "TEST SELLER "
+                          },
+                          "CPF": {
+                            "type": "string",
+                            "example": "04544541042"
+                          },
+                          "email": {
+                            "type": "string",
+                            "example": "test@test.com"
+                          },
+                          "password": {
+                            "type": "string",
+                            "example": "$2b$04$HUiSYWH7EjIFkyhRMvEssOdNvqEUoRHxRRpHwgcyMNbGBjMMNsZ0m"
+                          },
+                          "role": {
+                            "type": "string",
+                            "example": "SELLER"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "example": "2020-08-21T12:40:49.969Z"
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "example": "2020-08-21T12:40:49.969Z"
+                          }
+                        }
+                      },
+                      "secondBuyer": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "example": ""
+                          },
+                          "CPF": {
+                            "type": "string",
+                            "example": ""
+                          },
+                          "phone": {
+                            "type": "string",
+                            "example": ""
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "identificator": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "example": "2020-08-28T18:49:40.344Z"
+                  },
+                  "updatedAt": {
+                    "type": "string",
+                    "example": "2021-07-01T17:23:19.238Z"
+                  },
+                  "history": {
+                    "type": "string",
+                    "example": "5f4951c40766fb001004bd42"
+                  }
+                }
+              },
+              "value": {
+                "type": "number",
+                "example": 185000
+              },
+              "manager": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "TEST MANAGER"
+                  },
+                  "realEstate": {
+                    "type": "object",
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "example": "5f3eb810f6132c00170594a8"
+                      },
+                      "resetPassword": {
+                        "type": "boolean",
+                        "example": false
+                      },
+                      "active": {
+                        "type": "boolean",
+                        "example": true
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "TEST IMOVEIS"
+                      },
+                      "CNPJ": {
+                        "type": "string",
+                        "example": "53963743000123"
+                      },
+                      "email": {
+                        "type": "string",
+                        "example": "test@test.com"
+                      },
+                      "phone": {
+                        "type": "string",
+                        "example": "99999999999"
+                      },
+                      "password": {
+                        "type": "string",
+                        "example": "$2b$04$WEXIThOAfosgSXUtCGuWleID10rI/w1BpolEfuwwas2NnOU2n494y"
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "example": "2020-08-20T17:51:12.528Z"
+                      },
+                      "updatedAt": {
+                        "type": "string",
+                        "example": "2020-08-20T17:51:12.528Z"
+                      }
+                    }
+                  }
+                }
+              },
+              "agent": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "TEST AGENT"
+                  }
+                }
+              },
+              "responsible": {
+                "type": "string",
+                "example": "5f3a72a538fea50010e3c361"
+              },
+              "createdAt": {
+                "type": "string",
+                "example": "2020-08-28T18:49:40.785Z"
+              },
+              "updatedAt": {
+                "type": "string",
+                "example": "2021-07-01T17:23:19.232Z"
+              },
+              "status": {
+                "type": "string",
+                "example": "waiting"
+              }
+            }
+          }
+        },
+        "limit": {
+          "type": "number",
+          "example": 1
+        },
+        "page": {
+          "type": "number",
+          "example": 1
+        },
+        "pages": {
+          "type": "number",
+          "example": 1
+        }
+      }
+    },
+    "ProcessPaginated2": {
+      "type": "object",
+      "properties": {
+        "docs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "phases": {
+                "type": "array",
+                "example": [
+                  "6133ebf50be6b7008459ba2f",
+                  "6133ebf50be6b7008459ba30",
+                  "6133ebf50be6b7008459ba31",
+                  "6133ebf50be6b7008459ba32",
+                  "6133ebf50be6b7008459ba33",
+                  "6133ebf50be6b7008459ba34"
+                ],
+                "items": {
+                  "type": "string"
+                }
+              },
+              "archived": {
+                "type": "boolean",
+                "example": false
+              },
+              "active": {
+                "type": "boolean",
+                "example": true
+              },
+              "_id": {
+                "type": "string",
+                "example": "6133ebf50be6b7008459ba41"
+              },
+              "bank": {
+                "type": "string",
+                "example": "5f32cfeaf6132c001705941f"
+              },
+              "responsible": {
+                "type": "string",
+                "example": "5f2ac5c190bac50c158ebf0c"
+              },
+              "buyer": {
+                "type": "string",
+                "example": "612e47168ed5e600388311b2"
+              },
+              "manager": {
+                "type": "string",
+                "example": "5f3197f3f6132c001705941e"
+              },
+              "agent": {
+                "type": "string",
+                "example": "5f32cfb438fea50010e3c33b"
+              },
+              "seller": {
+                "type": "string",
+                "example": "6133ea510be6b7008459b9b6"
+              },
+              "fromAnalysis": {
+                "type": "string",
+                "example": "5f52849aa94d670010d8d19a"
+              },
+              "agentCommission": {
+                "type": "number",
+                "example": 0.06
+              },
+              "currentPhase": {
+                "type": "string",
+                "example": "6133ebf50be6b7008459ba2f"
+              },
+              "value": {
+                "type": "number",
+                "example": 150000
+              },
+              "createdAt": {
+                "type": "string",
+                "example": "2021-09-04T21:58:13.089Z"
+              },
+              "updatedAt": {
+                "type": "string",
+                "example": "2021-09-04T21:58:13.089Z"
+              }
+            }
+          }
+        },
+        "totalDocs": {
+          "type": "number",
+          "example": 290
+        },
+        "limit": {
+          "type": "number",
+          "example": 1
+        },
+        "totalPages": {
+          "type": "number",
+          "example": 290
+        },
+        "page": {
+          "type": "number",
+          "example": 1
+        },
+        "pagingCounter": {
+          "type": "number",
+          "example": 1
+        },
+        "hasPrevPage": {
+          "type": "boolean",
+          "example": false
+        },
+        "hasNextPage": {
+          "type": "boolean",
+          "example": true
+        },
+        "prevPage": {
+          "type": "string",
+          "example": "null"
+        },
+        "nextPage": {
+          "type": "number",
+          "example": 2
+        }
+      }
+    },
+    "ProcessHistory": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "number",
+            "example": 1
+          },
+          "startDate": {
+            "type": "string",
+            "example": "2020-08-11T17:27:03.019Z"
+          },
+          "finalDate": {
+            "type": "string",
+            "example": "2020-08-11T17:35:00.092Z"
+          },
+          "registers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "_id": {
+                  "type": "string",
+                  "example": "5f32d585f6132c001705942a"
+                },
+                "active": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "type": {
+                  "type": "string",
+                  "example": "StatusRegister"
+                },
+                "newStatus": {
+                  "type": "object",
+                  "properties": {
+                    "creditAnalysis": {
+                      "type": "boolean",
+                      "example": true
+                    }
+                  }
+                },
+                "date": {
+                  "type": "string",
+                  "example": "2020-08-11T17:29:41.514Z"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "example": "2020-08-11T17:29:41.516Z"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "example": "2020-08-11T17:29:41.516Z"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "AddUserRegister": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "example": "test"
+        },
+        "date": {
+          "type": "string",
+          "example": "05/09/2021"
+        }
+      }
+    },
+    "ItemUserRegister": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "example": "6134fdf5ab663c18234c8bc7"
+        },
+        "active": {
+          "type": "boolean",
+          "example": true
+        },
+        "type": {
+          "type": "string",
+          "example": "UserRegister"
+        },
+        "description": {
+          "type": "string",
+          "example": "test"
+        },
+        "date": {
+          "type": "string",
+          "example": "2021-09-05T00:00:00.000Z"
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2021-09-05T17:27:17.869Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-05T17:27:17.869Z"
+        }
+      }
+    },
+    "EditPhase": {
+      "type": "object",
+      "properties": {
+        "detail": {
+          "type": "object",
+          "properties": {
+            "buyer": {
+              "type": "string",
+              "example": "61257abeb960f000f9408c2d"
+            },
+            "seller": {
+              "type": "string",
+              "example": "5f32d4e7f6132c0017059427"
+            }
+          }
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "creditAnalysis": {
+              "type": "boolean",
+              "example": true
+            }
+          }
+        }
+      }
+    },
+    "ItemPhase": {
+      "type": "object",
+      "properties": {
+        "observation": {
+          "type": "array",
+          "example": [],
+          "items": {}
+        },
+        "docs": {
+          "type": "array",
+          "example": [],
+          "items": {}
+        },
+        "done": {
+          "type": "boolean",
+          "example": true
+        },
+        "_id": {
+          "type": "string",
+          "example": "6133eab0bb5813002a55924e"
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "creditAnalysis": {
+              "type": "boolean",
+              "example": true
+            }
+          }
+        },
+        "detail": {
+          "type": "object",
+          "properties": {
+            "buyer": {
+              "type": "string",
+              "example": "61257abeb960f000f9408c2d"
+            },
+            "seller": {
+              "type": "string",
+              "example": "5f32d4e7f6132c0017059427"
+            }
+          }
+        },
+        "identificator": {
+          "type": "number",
+          "example": 2
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2021-09-04T21:52:48.932Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-05T20:11:32.121Z"
+        },
+        "history": {
+          "type": "string",
+          "example": "61351c36be4c3b03caec36f8"
+        }
+      }
+    },
+    "EditPhaseDocument": {
+      "type": "object",
+      "properties": {
+        "downloaded": {
+          "type": "boolean",
+          "example": true
+        }
+      }
+    },
+    "RealEstatePaginated": {
+      "type": "object",
+      "properties": {
+        "docs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "resetPassword": {
+                "type": "boolean",
+                "example": true
+              },
+              "active": {
+                "type": "boolean",
+                "example": true
+              },
+              "_id": {
+                "type": "string",
+                "example": "5f31977ef6132c001705941d"
+              },
+              "name": {
+                "type": "string",
+                "example": "Imobiliaria Teste"
+              },
+              "CNPJ": {
+                "type": "string",
+                "example": "44860474000189"
+              },
+              "email": {
+                "type": "string",
+                "example": "teste@teste.com"
+              },
+              "phone": {
+                "type": "string",
+                "example": "51981347733"
+              },
+              "password": {
+                "type": "string",
+                "example": "$2b$04$zkhfy44tgK5y9Xlx.n569OWlZKU534vMRoEfPeods5QC44B9cOBpG\""
+              },
+              "createdAt": {
+                "type": "string",
+                "example": "2020-08-10T18:52:46.828Z"
+              },
+              "updatedAt": {
+                "type": "string",
+                "example": "2021-04-28T19:25:53.934Z"
+              }
+            }
+          }
+        },
+        "totalDocs": {
+          "type": "number",
+          "example": 51
+        },
+        "limit": {
+          "type": "number",
+          "example": 10
+        },
+        "totalPages": {
+          "type": "number",
+          "example": 6
+        },
+        "page": {
+          "type": "number",
+          "example": 1
+        },
+        "pagingCounter": {
+          "type": "number",
+          "example": 1
+        },
+        "hasPrevPage": {
+          "type": "boolean",
+          "example": false
+        },
+        "hasNextPage": {
+          "type": "boolean",
+          "example": true
+        },
+        "prevPage": {
+          "type": "boolean",
+          "example": false
+        },
+        "nextPage": {
+          "type": "number",
+          "example": 2
+        }
+      }
+    },
+    "ItemRealEstate": {
+      "type": "object",
+      "properties": {
+        "resetPassword": {
+          "type": "boolean",
+          "example": false
+        },
+        "active": {
+          "type": "boolean",
+          "example": true
+        },
+        "_id": {
+          "type": "string",
+          "example": "613bdd8a50077d03d98efc00"
+        },
+        "name": {
+          "type": "string",
+          "example": "Imobiliária Teste"
+        },
+        "CNPJ": {
+          "type": "string",
+          "example": "88007674000169"
+        },
+        "email": {
+          "type": "string",
+          "example": "test@test.com"
+        },
+        "phone": {
+          "type": "string",
+          "example": "49331125243"
+        },
+        "password": {
+          "type": "string",
+          "example": "$2b$04$zkhfy44tgK5y9Xlx.n569OWlZKU534vMRoEfPeods5QC44B9cOBpG"
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2021-09-10T22:34:50.359Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-10T22:34:50.359Z"
+        }
+      }
+    },
+    "RealEstateList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "resetPassword": {
+            "type": "boolean",
+            "example": false
+          },
+          "active": {
+            "type": "boolean",
+            "example": true
+          },
+          "_id": {
+            "type": "string",
+            "example": "613bd0e16ba8bc02281a166b"
+          },
+          "name": {
+            "type": "string",
+            "example": "Imobiliária Teste"
+          },
+          "CNPJ": {
+            "type": "string",
+            "example": "91763324000137"
+          },
+          "email": {
+            "type": "string",
+            "example": "test@test.com"
+          },
+          "phone": {
+            "type": "string",
+            "example": "49331125243"
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2021-09-10T21:40:49.692Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "example": "2021-09-10T21:40:49.692Z"
+          }
+        }
+      }
+    },
+    "AddRealEstate": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Imobiliária Teste"
+        },
+        "CNPJ": {
+          "type": "string",
+          "example": "44860474000189"
+        },
+        "email": {
+          "type": "string",
+          "example": "test@test.com"
+        },
+        "phone": {
+          "type": "string",
+          "example": "49331125243"
+        }
+      }
+    },
+    "RealEstateApplication": {
+      "type": "object",
+      "properties": {
+        "real_estate_name": {
+          "type": "string",
+          "example": "Imobiliaria solicitante Teste"
+        },
+        "real_estate_liaison": {
+          "type": "string",
+          "example": "Camila Elisa Betina de Paula"
+        },
+        "real_estate_phone": {
+          "type": "string",
+          "example": "6328242962"
+        },
+        "real_estate_email": {
+          "type": "string",
+          "example": "ccamilaelisabetinadepaula@puenteimoveis.com.br"
+        },
+        "applicant_email": {
+          "type": "string",
+          "example": "emanuelhenriquesales__emanuelhenriquesales@gap.com.br"
+        },
+        "applicant_name": {
+          "type": "string",
+          "example": "Emanuel Henrique Sales"
+        }
+      }
+    },
+    "ObservationProcessItem": {
+      "type": "object",
+      "properties": {
+        "phases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "observation": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "active": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "opened": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "_id": {
+                      "type": "string",
+                      "example": "5f32d76d38fea50010e3c33d"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Olá, neste momento precisamos da seguinte documentação:\n\nETAPA 2   DOCS COMPLEMENTARES \n\nMATRICULA ATUALIZADA \nCERTIDÃO DE ÔNUS E REIPER \nRG CPF VENDEDORES\nCERTIDÃO ESTADO CIVIL \nEMAIL +  FONE \nNº CONTA CORRENTE PARA RECEBEREM O RECURSO \n\nFavor enviar via app"
+                    },
+                    "date": {
+                      "type": "string",
+                      "example": "2020-08-11T17:37:47.780Z"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "example": "2020-08-11T17:37:49.224Z"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "example": "2020-08-11T17:37:49.224Z"
+                    }
+                  }
+                }
+              },
+              "_id": {
+                "type": "string",
+                "example": "5f32d4e7f6132c0017059421"
+              },
+              "identificator": {
+                "type": "number",
+                "example": 2
+              },
+              "history": {
+                "type": "object",
+                "properties": {
+                  "registerHistory": {
+                    "type": "array",
+                    "example": [
+                      "5f32d775f6132c001705942b",
+                      "5f32d7da38fea50010e3c33e",
+                      "5f32d88438fea50010e3c33f",
+                      "5f32d914f6132c001705942c"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "_id": {
+                    "type": "string",
+                    "example": "5f32d6c438fea50010e3c33c"
+                  },
+                  "phaseIdentificator": {
+                    "type": "number",
+                    "example": 2
+                  },
+                  "startDate": {
+                    "type": "string",
+                    "example": "2020-08-11T17:35:00.100Z"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "example": "2020-08-11T17:35:00.101Z"
+                  },
+                  "updatedAt": {
+                    "type": "string",
+                    "example": "2020-08-11T17:44:52.876Z"
+                  },
+                  "finalDate": {
+                    "type": "string",
+                    "example": "2020-08-11T17:44:52.876Z"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "archived": {
+          "type": "boolean",
+          "example": true
+        },
+        "active": {
+          "type": "boolean",
+          "example": false
+        },
+        "_id": {
+          "type": "string",
+          "example": "5f32d4e7f6132c0017059429"
+        },
+        "bank": {
+          "type": "string",
+          "example": "5f32cfeaf6132c001705941f"
+        },
+        "buyer": {
+          "type": "string",
+          "example": "5f32d4e7f6132c0017059428"
+        },
+        "currentPhase": {
+          "type": "string",
+          "example": "5f32d4e7f6132c0017059425"
+        },
+        "value": {
+          "type": "string",
+          "example": "null"
+        },
+        "manager": {
+          "type": "string",
+          "example": "5f3197f3f6132c001705941e"
+        },
+        "agent": {
+          "type": "string",
+          "example": "5f32cfb438fea50010e3c33b"
+        },
+        "seller": {
+          "type": "string",
+          "example": "null"
+        },
+        "responsible": {
+          "type": "string",
+          "example": "5f2ac5c190bac50c158ebf0c"
+        },
+        "agentCommission": {
+          "type": "number",
+          "example": 0.06
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2020-08-11T17:27:03.928Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-05T19:27:22.532Z"
+        },
+        "secondBuyer": {
+          "type": "string",
+          "example": "null"
+        }
+      }
+    },
+    "AddObservation": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "example": "test"
+        },
+        "date": {
+          "type": "string",
+          "example": "05/09/2021"
+        }
+      }
+    },
+    "ItemObservation": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "boolean",
+          "example": true
+        },
+        "opened": {
+          "type": "boolean",
+          "example": false
+        },
+        "_id": {
+          "type": "string",
+          "example": "613d5ad68dc5f215f266a1ee"
+        },
+        "description": {
+          "type": "string",
+          "example": "test"
+        },
+        "date": {
+          "type": "string",
+          "example": "2021-09-05T00:00:00.000Z"
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2021-09-12T01:41:42.769Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-12T01:41:42.769Z"
+        }
+      }
+    },
+    "NotificationList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "opened": {
+            "type": "boolean",
+            "example": false
+          },
+          "_id": {
+            "type": "string",
+            "example": "60feed94a6b1f00017a59b94"
+          },
+          "process": {
+            "type": "object",
+            "properties": {
+              "phases": {
+                "type": "array",
+                "example": [
+                  "60fabcc073fd5e0017329478",
+                  "60fabcc073fd5e0017329479",
+                  "60fabcc073fd5e001732947a",
+                  "60fabcc073fd5e001732947b",
+                  "60fabcc073fd5e001732947c",
+                  "60fabcc073fd5e001732947d"
+                ],
+                "items": {
+                  "type": "string"
+                }
+              },
+              "archived": {
+                "type": "boolean",
+                "example": false
+              },
+              "active": {
+                "type": "boolean",
+                "example": true
+              },
+              "_id": {
+                "type": "string",
+                "example": "60fabcc073fd5e001732947f"
+              },
+              "bank": {
+                "type": "string",
+                "example": "5f35436238fea50010e3c360"
+              },
+              "buyer": {
+                "type": "string",
+                "example": "60dcae381c866b002eca9f12"
+              },
+              "currentPhase": {
+                "type": "string",
+                "example": "60fabcc073fd5e001732947a"
+              },
+              "value": {
+                "type": "number",
+                "example": 160000
+              },
+              "manager": {
+                "type": "string",
+                "example": "5f3eb855f6132c00170594a9"
+              },
+              "agent": {
+                "type": "string",
+                "example": "5f3ebbb4f6132c00170594be"
+              },
+              "seller": {
+                "type": "string",
+                "example": "60f81cbb9df3d400102e0a8b"
+              },
+              "responsible": {
+                "type": "string",
+                "example": "60a54c6c7357dd00176e790e"
+              },
+              "agentCommission": {
+                "type": "number",
+                "example": 0.06
+              },
+              "createdAt": {
+                "type": "string",
+                "example": "2021-07-23T12:57:36.516Z"
+              },
+              "updatedAt": {
+                "type": "string",
+                "example": "2021-08-10T18:49:39.058Z"
+              },
+              "secondBuyer": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "CPF": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "phone": {
+                    "type": "string",
+                    "example": ""
+                  }
+                }
+              }
+            }
+          },
+          "buyer": {
+            "type": "object",
+            "properties": {
+              "active": {
+                "type": "boolean",
+                "example": true
+              },
+              "isMaster": {
+                "type": "boolean",
+                "example": false
+              },
+              "resetPassword": {
+                "type": "boolean",
+                "example": true
+              },
+              "_id": {
+                "type": "string",
+                "example": "60dcae381c866b002eca9f12"
+              },
+              "name": {
+                "type": "string",
+                "example": "Teste Buyer"
+              },
+              "CPF": {
+                "type": "string",
+                "example": "85445215091"
+              },
+              "email": {
+                "type": "string",
+                "example": "testebuyer@gmail.com"
+              },
+              "phone": {
+                "type": "string",
+                "example": "78573891025"
+              },
+              "password": {
+                "type": "string",
+                "example": "$2b$04$zCCP/zujj5rXFvJa1lSSL.lwUhk5PFuqFB.BEAxfeHpbdCmKRvClu"
+              },
+              "role": {
+                "type": "string",
+                "example": "BUYER"
+              },
+              "createdAt": {
+                "type": "string",
+                "example": "2021-06-30T17:47:36.500Z"
+              },
+              "updatedAt": {
+                "type": "string",
+                "example": "2021-07-26T14:28:17.825Z"
+              }
+            }
+          },
+          "phase": {
+            "type": "object",
+            "properties": {
+              "observation": {
+                "type": "array",
+                "example": [
+                  "60fad2c59df3d400102e0b1c",
+                  "60fff2357981ff0010b2a7a2",
+                  "6101c5267981ff0010b2a804"
+                ],
+                "items": {
+                  "type": "string"
+                }
+              },
+              "docs": {
+                "type": "array",
+                "example": [],
+                "items": {}
+              },
+              "done": {
+                "type": "boolean",
+                "example": true
+              },
+              "_id": {
+                "type": "string",
+                "example": "60fabcc073fd5e0017329479"
+              },
+              "status": {
+                "type": "object",
+                "properties": {
+                  "paymentDone": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "documentationDone": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "surveyDone": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "immobileAcept": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "documentationReady": {
+                    "type": "boolean",
+                    "example": true
+                  }
+                }
+              },
+              "detail": {
+                "type": "object",
+                "properties": {
+                  "reportValue": {
+                    "type": "number",
+                    "example": 160000
+                  },
+                  "survey": {
+                    "type": "object",
+                    "properties": {
+                      "date": {
+                        "type": "string",
+                        "example": "02/08/2021"
+                      },
+                      "hour": {
+                        "type": "string",
+                        "example": "08:30"
+                      }
+                    }
+                  }
+                }
+              },
+              "identificator": {
+                "type": "number",
+                "example": 2
+              },
+              "createdAt": {
+                "type": "string",
+                "example": "2021-07-23T12:57:36.491Z"
+              },
+              "updatedAt": {
+                "type": "string",
+                "example": "2021-08-10T18:49:39.080Z"
+              },
+              "history": {
+                "type": "string",
+                "example": "60fad2c09df3d400102e0b1b"
+              }
+            }
+          },
+          "administrator": {
+            "type": "string",
+            "example": "60a54c6c7357dd00176e790e"
+          },
+          "document": {
+            "type": "string",
+            "example": "Comprovante de Pagamento"
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2021-07-26T17:15:00.190Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "example": "2021-07-26T17:15:00.190Z"
+          }
+        }
+      }
+    },
+    "NotificationItem": {
+      "type": "object",
+      "properties": {
+        "opened": {
+          "type": "boolean",
+          "example": true
+        },
+        "_id": {
+          "type": "string",
+          "example": "5f773d16bd089000105deba1"
+        },
+        "process": {
+          "type": "string",
+          "example": "5f3fc6cff6132c0017059503"
+        },
+        "buyer": {
+          "type": "string",
+          "example": "5f3fc6cff6132c0017059502"
+        },
+        "phase": {
+          "type": "string",
+          "example": "5f3fc6cef6132c00170594fb"
+        },
+        "administrator": {
+          "type": "string",
+          "example": "5f3a72a538fea50010e3c361"
+        },
+        "document": {
+          "type": "string",
+          "example": "documento complementar"
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2020-10-02T14:45:42.370Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2021-09-20T05:49:23.219Z"
+        }
+      }
+    },
+    "Login": {
+      "type": "object",
+      "properties": {
+        "cpfCnpj": {
+          "type": "string",
+          "example": "95732886052"
+        },
+        "password": {
+          "type": "string",
+          "example": "testePassword1"
+        }
+      }
+    },
+    "LoginResponse": {
+      "type": "object",
+      "properties": {
+        "logged": {
+          "type": "boolean",
+          "example": true
+        },
+        "token": {
+          "type": "string",
+          "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjc1ODRhNTljMGFmMDA3NDUzOGJmYyIsImlhdCI6MTYzNTA3MDE1MywiZXhwIjoxNjM1MDcxMDUzfQ.Mf3GpIiv06KZOCSywlsq2YudTs4grrW2O3DvgzKl7ls"
+        },
+        "refreshToken": {
+          "type": "string",
+          "example": "1c2b05d8c3685df012c9d80b25ec404f04f4cd029e61f692"
+        },
+        "role": {
+          "type": "string",
+          "example": "ADMINISTRATOR"
+        },
+        "id": {
+          "type": "string",
+          "example": "6167584a59c0af0074538bfc"
+        },
+        "name": {
+          "type": "string",
+          "example": "Jamie Arn"
+        },
+        "resetPassword": {
+          "type": "boolean",
+          "example": true
+        }
+      }
+    },
+    "LoginRelog": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string",
+          "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MzQ5NDA5MTgsImlhdCI6MTYzNDg1NDUxOCwiaWQiOiI2MTY3NTg0YTU5YzBhZjAwNzQ1MzhiZmMifQ.WwP-cLd8_neMdyoN_eJpPB1JEIzANM_gpqimypTZXaQ"
+        }
+      }
+    },
+    "recoverySolicitation": {
+      "type": "object",
+      "properties": {
+        "cpfCnpj": {
+          "type": "string",
+          "example": "95732886052"
+        }
+      }
+    },
+    "ChangePassword": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "6167584a59c0af0074538bfc"
+        },
+        "password": {
+          "type": "string",
+          "example": "testePassword2"
+        }
+      }
+    },
+    "ChangePasswordWithToken": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "example": "4d85a9978f78e720eea711efbd7a19695ee2f651896b9b69"
+        },
+        "password": {
+          "type": "string",
+          "example": "testePassword2"
+        }
+      }
+    }
+  }
+}
