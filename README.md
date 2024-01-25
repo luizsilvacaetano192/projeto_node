@@ -6,6 +6,7 @@ __<p> Api Nodejs banco de dados mongodb, Jwt, Redis, Docker-compose.__</p>__
 - [x] Envio de email utilizando sendgrid.
 - [x] Documentação pelo swagger.
 - [x] Coleta de leads utilizando RdStation.
+- [x] Desenvolvido com TDD.
 
 Faça a instação do docker e docker compose.
 
