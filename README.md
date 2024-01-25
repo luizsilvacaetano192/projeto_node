@@ -1,4 +1,4 @@
-__<p> Api Nodejs banco de dados mongodb, Jwt, Redis, Docker-compose.__</p>__
+__<p> Api Nodejs banco de dados mongodb, Jwt, Redis, jest, Docker-compose.__</p>__
 
 - [x] Autenticação de usuário utilizando validação por validação jwt.
 - [x] Criação de blacklist de token utilizando redis.
@@ -6,7 +6,7 @@ __<p> Api Nodejs banco de dados mongodb, Jwt, Redis, Docker-compose.__</p>__
 - [x] Envio de email utilizando sendgrid.
 - [x] Documentação pelo swagger.
 - [x] Coleta de leads utilizando RdStation.
-- [x] Desenvolvido com TDD.
+- [x] Desenvolvido com TDD jest.
 
 Faça a instação do docker e docker compose.
 
