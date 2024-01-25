@@ -17,6 +17,9 @@ Faça a instação do docker e docker compose.
 </p>
 <p> Copie o  .env.example -> .env - Digite o comando cp .env.example .env </p>
 <p>
+   Execute npm i
+</p>
+<p>
    Execute docker-compose up --remove-orphans -d
 </p>
 
